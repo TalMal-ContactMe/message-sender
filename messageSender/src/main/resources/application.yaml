@@ -1,0 +1,9 @@
+#server.port: 8081
+spring.application.name: message-sender
+
+#spring.profiles.active: docker
+#spring.config.import: configserver:http://config:8888
+
+#spring.profiles.active: localhost
+#spring.config.import: configserver:http://localhost:8888
+
