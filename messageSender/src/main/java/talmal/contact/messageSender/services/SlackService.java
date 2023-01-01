@@ -853,7 +853,7 @@ public class SlackService
 			}
 			else
 			{
-				log.error("Message threadTs not found in message: ", payload);
+				log.error("Message threadTs not found in message: {}", payload);
 			}
 		}
 

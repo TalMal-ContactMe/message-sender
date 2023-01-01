@@ -8,7 +8,7 @@
 		<groupId>talmal.contact</groupId>
 		<artifactId>MavenParent</artifactId>
 		<version>0.0.1</version>
-		<relativePath>../MavenParent/pom.xml</relativePath>
+		<relativePath>../../maven-parent/MavenParent/pom.xml</relativePath>
 	</parent>
 
 	<artifactId>messageSender</artifactId>
