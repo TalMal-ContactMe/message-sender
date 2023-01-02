@@ -694,8 +694,19 @@ public class SlackService
 						if (conversationsHistoryResponse.isOk())
 						{
 							// get all messages in conversation
+							// TODO: for some reason, conversation replies are not deleted - find out why 
 							conversationsHistoryResponse.getMessages().stream().forEach(message ->
 							{
+								try
+								{
+									// slack has a rate limit on calls, so take it easy  
+									Thread.sleep(1000);
+								}
+								catch (InterruptedException e)
+								{
+									log.error(e.getLocalizedMessage(),e);
+								}
+								
 								this.deleteMessage(channelId, ((Message) message).getTs());
 							});
 						}
