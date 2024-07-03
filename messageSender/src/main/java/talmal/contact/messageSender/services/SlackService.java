@@ -97,7 +97,7 @@ public class SlackService
 		this.SLACK_CHANNEL_ROBOT_NAME = slackChannelRobotName;
 		this.channelId = channelId;
 		this.channelName = channelName;
-		this.token = token;
+		this.token = new String(Base64.getDecoder().decode(token));
 		this.socketToken = socketToken;
 
 		// Initialize an API Methods client with the given token
