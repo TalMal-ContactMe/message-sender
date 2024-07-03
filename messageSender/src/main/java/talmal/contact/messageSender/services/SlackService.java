@@ -84,8 +84,12 @@ public class SlackService
 
 	@Autowired
 	private MessageQueueService messageQueueService;
-
-	public SlackService(@Value("${slack.botToken}") String token, @Value("${slack.socketToken}") String socketToken, @Value("${slack.channelOwnerName}") String slackChannelOwnerName,
+	
+	// TODO: use @refreshScope to set config values dynamically, and verify it works
+	// TODO: set load balancer cache. what is that about ?
+	//@SpanName(value = "getAllBooksFromConsumer") // TODO: i could not find this "name" in zipkin, where do i see it ?
+	
+	public SlackService(@Value("${slack.gogo}") String token, @Value("${slack.socketToken}") String socketToken, @Value("${slack.channelOwnerName}") String slackChannelOwnerName,
 		@Value("${slack.channelRobotName:Robot}") String slackChannelRobotName, @Value("${slack.channelId:}") String channelId, @Value("${slack.channelName:contact-me}") String channelName)
 	{
 		this.apiClient = Slack.getInstance();
