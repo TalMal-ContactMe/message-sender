@@ -3,6 +3,7 @@ package talmal.contact.messageSender.services;
 import java.io.IOException;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -89,7 +90,7 @@ public class SlackService
 	// TODO: set load balancer cache. what is that about ?
 	//@SpanName(value = "getAllBooksFromConsumer") // TODO: i could not find this "name" in zipkin, where do i see it ?
 	
-	public SlackService(@Value("${slack.gogo}") String token, @Value("${slack.socketToken}") String socketToken, @Value("${slack.channelOwnerName}") String slackChannelOwnerName,
+	public SlackService(@Value("${slack.gogo}") String token, @Value("${slack.soso}") String socketToken, @Value("${slack.channelOwnerName}") String slackChannelOwnerName,
 		@Value("${slack.channelRobotName:Robot}") String slackChannelRobotName, @Value("${slack.channelId:}") String channelId, @Value("${slack.channelName:contact-me}") String channelName)
 	{
 		this.apiClient = Slack.getInstance();
@@ -98,10 +99,10 @@ public class SlackService
 		this.channelId = channelId;
 		this.channelName = channelName;
 		this.token = new String(Base64.getDecoder().decode(token));
-		this.socketToken = socketToken;
+		this.socketToken = new String(Base64.getDecoder().decode(socketToken));
 
 		// Initialize an API Methods client with the given token
-		this.methodsClient = this.apiClient.methods(token);
+		this.methodsClient = this.apiClient.methods(this.token);
 		try // i am not using this.socketModeClient with try-with-resource 
 		// because i need to keep it outside of the local scope.
 		{

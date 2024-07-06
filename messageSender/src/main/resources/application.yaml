@@ -1,6 +1,10 @@
 #server.port: 8081
 spring.application.name: message-sender
 
+#spring.cloud.config.enabled: false
+#spring.cloud.config.import-check.enabled: false
+#spring.config.import: optional:configserver: instead
+
 #spring.profiles.active: docker
 #spring.config.import: configserver:http://config:8888
 
