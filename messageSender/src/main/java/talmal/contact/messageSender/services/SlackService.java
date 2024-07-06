@@ -144,7 +144,7 @@ public class SlackService
 								else
 								{
 									// message came from a closed conversation - nothing to do with it
-									log.debug("message came from a closed conversation - nothing to do with it: {}", envelope);
+									log.debug("mmessage came from a closed conversation - nothing to do with it: {}", envelope);
 								}
 								break;
 							}
